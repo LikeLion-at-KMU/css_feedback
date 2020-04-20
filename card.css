@@ -1,14 +1,17 @@
-/* 카드 디자인 만들기 */
-
-/*  의문1 : title 위에 margin은 margin=0으로 해도 안없어진다.
-    의문2 : text부분을 하얗게 하고싶은데 저 라운드 모양으로 잘 만들어지지 않는다.
-    (라운드 픽셀 맞춰서해도 윗모서리도 동그랗게 된다.)
-    의문3 : 화살표 주변의 네모박스가 거슬린다.*/
-
     html, body {
         width:100%;
         height:100%;
         margin:0;
+    }
+     
+    a {
+        all: unset;
+        /* 
+        모든 기본 속성을 초기화 했기 때문에 기본적으로 파랗게 되는 효과도 사라지고
+        마우스를 올렸을 때 포인터 모양으로 변하는 효과도 사라졌습니다.
+        그래서 cursor: pointer를 직접 줘야합니다!
+         */
+        cursor: pointer;
     }
 
 
@@ -23,19 +26,12 @@
         width:300px;
         height:600px;
 
-        border-radius: 10px;
-
-        background-color: #F4F4F4;
-
         /* 박스 그림자 */
         box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
         transition:1.2s;
-
-        /* margin:0 auto; */
         margin: 0 auto 0 auto;
-        padding:5rem 10rem;
-
-        padding:20px;
+        border-radius: 10px 10px 0 0;
+        
     }
 
     .card:hover {
@@ -43,14 +39,43 @@
     }
 
     .card .main {
+        background-color: #e7e7e7;
         padding: 15px;
+        border-radius: 10px 10px 0 0;
 
     }
 
     .card .text {
-        background-color: #FFFFFF;
-        text-align:center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+        
     }
+
+    /* 
+    아래는 하나하나 속성을 이해하려고 하시기 보다는,
+    이런 식으로 조합해서 넣었더니 아이콘이 가운데에 딱 들어오고
+    margin-top을 음수로 줘서 기존 위치에서 벗어나는 디자인을 할 수 있구나!
+    이해하시면 됩니다!
+    */
+    .card .text .list-icon {
+        float: right;
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background-color: pink;
+        margin-top: -50px;
+        
+    }
+    .card .text .list-icon i {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 
     .button {
         color: #e7c9bf;
@@ -73,7 +98,10 @@
     }
 
     #left {
-        text-align: left;
+        /* text-align: left; */
+        /* 안써도 왼쪽 정렬되어서 주석 처리 해두었습니다! */
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     #red {
